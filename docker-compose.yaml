@@ -1,0 +1,17 @@
+version: '3.4'
+
+services:
+  php:
+    user: "${DOCKER_COMPOSE_RUN_AS_USER:?You must define user:group for permissions handling, look at README}"
+    build:
+      target: php-dev
+      context: .
+      args:
+        APP_ENV: "dev" # Always build developer-friendly environment
+        APP_VERSION: "local-dev" # Let's set up some dummy version just to test if it's passed to the image
+    command: 'sh -c "composer install && bin/console -e dev server:dump"'
+    environment:
+      COMPOSER_MEMORY_LIMIT: "-1"
+    volumes:
+      - .:/app
+      - ~/.composer:/.composer

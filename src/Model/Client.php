@@ -7,7 +7,7 @@ namespace App\Model;
 /**
  * @author Mateusz Kaczorowski <mateuszkaczorowski3@gmail.com>
  */
-class Person
+class Client
 
 {
     private $age;

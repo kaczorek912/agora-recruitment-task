@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UserInterface\Cli;
 
-use App\Application\Command\ParseOrdersXml;
+use App\Application\Command\ParseOrdersFromXml;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -43,7 +43,7 @@ class ParseClientOrdersCommand extends Command
 
         $content = file_get_contents($fileName);
 
-        $this->commandBus->dispatch(new ParseOrdersXml($content));
+        $this->commandBus->dispatch(new ParseOrdersFromXml($content));
 
         return 0;
     }

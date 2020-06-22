@@ -50,7 +50,7 @@ final class ParseOrdersFromXlsxHandler
         foreach ($data as $orderData) {
             if (isset($orderData[2]) && is_numeric($orderData[2])) {
                 $clients[$orderData[3]] = new Client($orderData[3]);
-                $orders[$orderData[3]] = new Order(
+                $orders[$orderData[3]][] = new Order(
                     $orderData[0],
                     $orderData[1],
                     $orderData[2],
@@ -59,5 +59,6 @@ final class ParseOrdersFromXlsxHandler
                 );
             }
         }
+
     }
 }

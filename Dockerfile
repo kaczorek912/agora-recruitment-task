@@ -8,22 +8,24 @@ COPY --from=composer:1.8.4 /usr/bin/composer /usr/bin/composer
 RUN set -xe && \
     apk add --update \
         icu \
+        libpng \
         libzip && \
     apk add --no-cache --virtual .php-deps \
         make && \
     apk add --no-cache --virtual .build-deps \
         $PHPIZE_DEPS \
-        libzip-dev \
         zlib-dev \
         icu-dev \
         libxml2-dev \
+        libzip-dev \
+        libpng-dev \
         g++ && \
     (docker-php-ext-install \
+        gd \
         xml \
         intl \
         opcache \
-        zip \
-        sockets && \
+        zip &&\
          > /dev/null) && \
     composer global require "hirak/prestissimo:^0.3" "fxp/composer-asset-plugin:^1.2.0" --prefer-dist --no-progress \
         --no-suggest --optimize-autoloader --classmap-authoritative  --no-interaction -q && \

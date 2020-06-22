@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Application\Command;
 
-use App\Model\Client;
+use App\Model\Order;
 
 /**
  * @author Mateusz Kaczorowski <mateuszkaczorowski3@gmail.com>
@@ -12,15 +12,16 @@ use App\Model\Client;
 class ParseOrdersToJson
 
 {
-    private $client;
+    /** @var Order */
+    private $order;
 
-    public function __construct(Client $client)
+    public function __construct(Order $order)
     {
-        $this->client = $client;
+        $this->order = $order;
     }
 
-    public function getClient()
+    public function getOrder(): Order
     {
-        return $this->client;
+        return $this->order;
     }
 }

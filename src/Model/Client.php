@@ -10,27 +10,17 @@ namespace App\Model;
 class Client
 
 {
-    private $age;
+    /** @var string  */
     private $name;
 
-    public function getName()
-    {
-        return $this->name;
-    }
-
-    public function getAge()
-    {
-        return $this->age;
-    }
-
-    public function setName($name)
+    public function __construct(string $name)
     {
         $this->name = $name;
     }
 
-    public function setAge($age)
+    public function getName():string
     {
-        $this->age = $age;
+        return $this->name;
     }
 
 }

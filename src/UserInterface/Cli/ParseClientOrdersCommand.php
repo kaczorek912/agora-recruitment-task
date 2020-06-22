@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\UserInterface\Cli;
 
-use App\Application\Command\ParseOrdersFromXml;
+use App\Application\Command\ParseOrdersFromXlsx;
 use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
@@ -41,9 +41,8 @@ class ParseClientOrdersCommand extends Command
             throw new FileNotFoundException("File with the given name ($fileName) does not exist");
         }
 
-        $content = file_get_contents($fileName);
 
-        $this->commandBus->dispatch(new ParseOrdersFromXml($content));
+        $this->commandBus->dispatch(new ParseOrdersFromXlsx($fileName));
 
         return 0;
     }

@@ -22,5 +22,7 @@ services:
     App\Application\Handler\:
         resource: '../src/Application/Handler/*'
         tags: ['messenger.message_handler']
-
-    PhpOffice\PhpSpreadsheet\Reader\Xlsx:
+    App\Application\Handler\ParseOrdersToJsonHandler:
+        arguments:
+            $client:
+        tags: ['messenger.message_handler']

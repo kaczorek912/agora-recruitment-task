@@ -12,16 +12,16 @@ use App\Model\Order;
 class ParseOrdersToJson
 
 {
-    /** @var Order */
-    private $order;
+    /** @var Order[] */
+    private $orders;
 
-    public function __construct(Order $order)
+    public function __construct(array $orders)
     {
-        $this->order = $order;
+        $this->orders = $orders;
     }
 
-    public function getOrder(): Order
+    public function getOrders(): array
     {
-        return $this->order;
+        return $this->orders;
     }
 }

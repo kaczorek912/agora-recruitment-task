@@ -10,63 +10,63 @@ namespace App\Model;
 class Order
 {
     /** @var string */
-    private $forwarder;
+    private $courier;
 
     /** @var string */
-    private $trackingNumber;
+    private $waybillNumber;
 
     /** @var float */
     private $amount;
 
-    /** @var Client */
-    private $client;
+    /** @var string */
+    public $clientName;
 
     /** @var string */
-    private $orderId;
+    private $orderNumber;
 
     /**
-     * @param string $forwarder
-     * @param string $trackingNumber
+     * @param string $courier
+     * @param string $waybillNumber
      * @param float $amount
-     * @param Client $client
-     * @param string $orderId
+     * @param string $clientName
+     * @param string $orderNumber
      */
     public function __construct(
-        string $forwarder,
-        string $trackingNumber,
+        string $courier,
+        string $waybillNumber,
         float $amount,
-        Client $client,
-        string $orderId
+        string $clientName,
+        string $orderNumber
     ) {
-        $this->forwarder = $forwarder;
-        $this->trackingNumber = $trackingNumber;
+        $this->courier = $courier;
+        $this->waybillNumber = $waybillNumber;
         $this->amount = $amount;
-        $this->client = $client;
-        $this->orderId = $orderId;
+        $this->clientName = $clientName;
+        $this->orderNumber = $orderNumber;
     }
 
     /**
      * @return string
      */
-    public function getForwarder(): string
+    public function getCourier(): string
     {
-        return $this->forwarder;
-    }
-
-    /**
-     * @return Client
-     */
-    public function getClient(): Client
-    {
-        return $this->client;
+        return $this->courier;
     }
 
     /**
      * @return string
      */
-    public function getTrackingNumber(): string
+    public function getClientName(): string
     {
-        return $this->trackingNumber;
+        return $this->clientName;
+    }
+
+    /**
+     * @return string
+     */
+    public function getWaybillNumber(): string
+    {
+        return $this->waybillNumber;
     }
 
     /**
@@ -80,9 +80,9 @@ class Order
     /**
      * @return string
      */
-    public function getOrderId(): string
+    public function getOrderNumber(): string
     {
-        return $this->orderId;
+        return $this->orderNumber;
     }
 
 

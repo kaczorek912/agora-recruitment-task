@@ -5,22 +5,38 @@ declare(strict_types=1);
 namespace App\Model;
 
 /**
- * @author Mateusz Kaczorowski <mateuszkaczorowski3@gmail.com>
+ * @author Mateusz Kaczorowski <mateusz.kaczorowski@iiit.pl>
  */
 class Client
-
 {
-    /** @var string  */
-    private $name;
+    /** @var string */
+    public $name;
 
-    public function __construct(string $name)
+    /** @var Order[] */
+    public $orders;
+
+    /**
+     * @param string $name
+     */
+    public function __construct(string $name, array $orders)
     {
         $this->name = $name;
+        $this->orders = $orders;
     }
 
-    public function getName():string
+    public function getAllOrders(): array
     {
-        return $this->name;
+        return $this->orders;
+    }
+
+    public function sumAllOrders()
+    {
+        $sum = 0;
+        foreach ($this->getAllOrders() as $order) {
+            $sum += $order->getAmount();
+        }
+
+        return $sum;
     }
 
 }

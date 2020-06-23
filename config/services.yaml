@@ -23,6 +23,4 @@ services:
         resource: '../src/Application/Handler/*'
         tags: ['messenger.message_handler']
     App\Application\Handler\ParseOrdersToJsonHandler:
-        arguments:
-            $client:
         tags: ['messenger.message_handler']

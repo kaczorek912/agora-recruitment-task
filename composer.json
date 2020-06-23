@@ -7,6 +7,8 @@
         "php": "^7.2.5",
         "ext-ctype": "*",
         "ext-iconv": "*",
+        "ext-json": "*",
+        "php-ds/php-ds": "^1.2",
         "phpoffice/phpspreadsheet": "^1.13",
         "symfony/console": "5.1.*",
         "symfony/dotenv": "*",
@@ -15,10 +17,13 @@
         "symfony/messenger": "5.1.*",
         "symfony/property-access": "5.1.*",
         "symfony/serializer": "5.1.*",
-        "symfony/yaml": "*",
-        "ext-json": "*"
+        "symfony/yaml": "*"
     },
     "require-dev": {
+        "friendsofphp/php-cs-fixer": "^2.15",
+        "phpunit/phpunit": "^9.2",
+        "symfony/test-pack": "^1.0",
+        "vimeo/psalm": "^3.4"
     },
     "config": {
         "optimize-autoloader": true,
@@ -56,6 +61,21 @@
         ],
         "post-update-cmd": [
             "@auto-scripts"
+        ],
+        "cs": "php -dtimecop.func_override=0 ./vendor/bin/php-cs-fixer fix --dry-run --verbose",
+        "cs-fix": "php -dtimecop.func_override=0 ./vendor/bin/php-cs-fixer fix",
+        "psalm": "psalm --show-info=false",
+        "phpunit": "./vendor/bin/phpunit/tests",
+        "qa": [
+            "@sa",
+            "@tests"
+        ],
+        "tests": [
+            "@phpunit"
+        ],
+        "sa": [
+            "@cs",
+            "@psalm"
         ]
     },
     "conflict": {

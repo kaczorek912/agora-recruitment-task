@@ -7,11 +7,10 @@ namespace App\Application\Handler;
 use App\Application\Command\ParseOrdersFromXlsx;
 use App\Application\Command\ParseOrdersToJson;
 use App\Model\Order;
-use Symfony\Component\Messenger\MessageBusInterface;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use Symfony\Component\Messenger\MessageBusInterface;
 
 /**
- *
  * @author Mateusz Kaczorowski <mateuszkaczorowski3@gmail.com>
  */
 final class ParseOrdersFromXlsxHandler
@@ -37,7 +36,7 @@ final class ParseOrdersFromXlsxHandler
             $cellIterator = $row->getCellIterator();
             $cells = [];
             foreach ($cellIterator as $cell) {
-                if ($cell->getDataType() !== 'null') {
+                if ('null' !== $cell->getDataType()) {
                     $cells[] = $cell->getValue();
                 }
             }
@@ -47,12 +46,10 @@ final class ParseOrdersFromXlsxHandler
         array_shift($rows);
 
         $orders = array_map(
-
             static function ($orderData) {
                 return new Order($orderData[0], $orderData[1], $orderData[2], $orderData[3], $orderData[4]);
             },
             array_filter($rows)
-
         );
 
         $this->commandBus->dispatch(new ParseOrdersToJson($orders));

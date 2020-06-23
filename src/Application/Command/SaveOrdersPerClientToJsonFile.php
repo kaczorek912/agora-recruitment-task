@@ -4,14 +4,11 @@ declare(strict_types=1);
 
 namespace App\Application\Command;
 
-use App\Model\Client;
-
 /**
  * @author Mateusz Kaczorowski <mateuszkaczorowsk3@gmail.com>
  */
 class SaveOrdersPerClientToJsonFile
 {
-
     /** @var string */
     public $jsonData;
 
@@ -33,5 +30,4 @@ class SaveOrdersPerClientToJsonFile
     {
         return $this->clientName;
     }
-
 }

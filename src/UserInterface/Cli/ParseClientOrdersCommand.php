@@ -37,8 +37,8 @@ class ParseClientOrdersCommand extends Command
             return Command::FAILURE;
         }
 
-        if (!file_exists($fileName)) {
-            throw new FileNotFoundException("File with the given name ($fileName) does not exist");
+        if (!is_string($fileName) || !file_exists($fileName)) {
+            throw new FileNotFoundException('File with the given name does not exist or has an incorrect name ');
         }
 
         $this->commandBus->dispatch(new ParseOrdersFromXlsx($fileName));

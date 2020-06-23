@@ -14,6 +14,7 @@ use Symfony\Component\Serializer\SerializerInterface;
 
 /**
  * @author Mateusz Kaczorowski <mateuszkaczorowski3@gmail.com>
+ * @psalm-suppress PropertyNotSetInConstructor
  */
 class ParseOrdersToJsonHandler implements JsonSerializable
 {
@@ -26,15 +27,15 @@ class ParseOrdersToJsonHandler implements JsonSerializable
     /** @var Client */
     private $client;
 
-    public function __construct(SerializerInterface $serializer, MessageBusInterface $commandBus, ?Client $client)
+    public function __construct(SerializerInterface $serializer, MessageBusInterface $commandBus)
     {
         $this->serializer = $serializer;
         $this->commandBus = $commandBus;
-        $this->client = $client;
     }
 
     public function __invoke(ParseOrdersToJson $command)
     {
+        $clientOrders = [];
         foreach ($command->getOrders() as $order) {
             $clientOrders[$order->getClientName()][] = $order;
         }

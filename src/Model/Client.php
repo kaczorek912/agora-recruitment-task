@@ -40,5 +40,4 @@ class Client
 
         return $sum;
     }
-
 }

@@ -10,7 +10,6 @@ use App\Model\Order;
  * @author Mateusz Kaczorowski <mateuszkaczorowski3@gmail.com>
  */
 class ParseOrdersToJson
-
 {
     /** @var Order[] */
     private $orders;

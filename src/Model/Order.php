@@ -85,5 +85,4 @@ class Order
         return $this->orderNumber;
     }
 
-
 }

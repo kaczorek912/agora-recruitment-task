@@ -6,7 +6,6 @@ namespace App\Application\Handler;
 
 use App\Application\Command\ParseOrdersFromXlsx;
 use App\Application\Command\ParseOrdersToJson;
-use App\Model\Client;
 use App\Model\Order;
 use Symfony\Component\Messenger\MessageBusInterface;
 use Symfony\Component\Serializer\SerializerInterface;
@@ -56,8 +55,7 @@ final class ParseOrdersFromXlsxHandler
 
         $orders = array_map(
 
-            static function ($orderData){
-
+            static function ($orderData) {
                 return new Order($orderData[0], $orderData[1], $orderData[2], $orderData[3], $orderData[4]);
             },
             array_filter($rows)

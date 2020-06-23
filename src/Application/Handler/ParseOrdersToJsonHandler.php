@@ -49,7 +49,6 @@ class ParseOrdersToJsonHandler implements JsonSerializable
             );
 
             $this->commandBus->dispatch(new SaveOrdersPerClientToJsonFile($serializedOrders, $this->client->name));
-
         }
     }
 

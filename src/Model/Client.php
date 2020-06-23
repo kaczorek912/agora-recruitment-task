@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Model;
 
 /**
- * @author Mateusz Kaczorowski <mateusz.kaczorowski@iiit.pl>
+ * @author Mateusz Kaczorowski <mateuszkaczorowski3@gmail.com>
  */
 class Client
 {
@@ -29,7 +29,7 @@ class Client
         return $this->orders;
     }
 
-    public function sumAllOrders()
+    public function sumAllOrders(): float
     {
         $sum = 0;
         foreach ($this->getAllOrders() as $order) {

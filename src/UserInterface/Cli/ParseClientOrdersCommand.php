@@ -9,6 +9,7 @@ use Symfony\Component\Console\Command\Command;
 use Symfony\Component\Console\Input\InputInterface;
 use Symfony\Component\Console\Input\InputOption;
 use Symfony\Component\Console\Output\OutputInterface;
+use Symfony\Component\Console\Style\SymfonyStyle;
 use Symfony\Component\Filesystem\Exception\FileNotFoundException;
 use Symfony\Component\Messenger\MessageBusInterface;
 
@@ -30,27 +31,25 @@ class ParseClientOrdersCommand extends Command
         $fileName = $input->getOption('file-name');
 
         if (!$fileName) {
-            $output->writeln(
-                \sprintf('<error>%s</error>', 'Parameter file-name (-f) is required')
-            );
+            $io = new SymfonyStyle($input, $output);
+            $io->error('Parameter file-name (-f) is required');
 
-            return 0;
+            return Command::FAILURE;
         }
 
-        if (!file_exists($fileName)){
+        if (!file_exists($fileName)) {
             throw new FileNotFoundException("File with the given name ($fileName) does not exist");
         }
 
-
         $this->commandBus->dispatch(new ParseOrdersFromXlsx($fileName));
 
-        return 0;
+        return Command::SUCCESS;
     }
 
     protected function configure(): void
     {
         $this
-            ->setDescription('')
+            ->setDescription('Parse orders per client')
             ->addOption('file-name', 'f', InputOption::VALUE_REQUIRED, 'input file name');
     }
 }

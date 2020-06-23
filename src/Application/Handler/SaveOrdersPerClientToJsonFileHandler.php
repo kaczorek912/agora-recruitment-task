@@ -6,6 +6,9 @@ namespace App\Application\Handler;
 
 use App\Application\Command\SaveOrdersPerClientToJsonFile;
 
+/**
+ * @author Mateusz Kaczorowski <mateuszkaczorowski3@gmail.com>
+ */
 class SaveOrdersPerClientToJsonFileHandler
 {
 

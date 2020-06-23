@@ -18,9 +18,6 @@ class SaveOrdersPerClientToJsonFile
     /** @var string */
     private $clientName;
 
-    /**
-     * @param string $jsonData
-     */
     public function __construct(string $jsonData, string $clientName)
     {
         $this->jsonData = $jsonData;

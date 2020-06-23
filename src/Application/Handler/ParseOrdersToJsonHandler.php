@@ -17,9 +17,7 @@ use Symfony\Component\Serializer\SerializerInterface;
  */
 class ParseOrdersToJsonHandler implements JsonSerializable
 {
-    /**
-     * @var SerializerInterface
-     */
+    /** @var SerializerInterface */
     private $serializer;
 
     /** @var MessageBusInterface */
@@ -48,7 +46,7 @@ class ParseOrdersToJsonHandler implements JsonSerializable
                 [AbstractNormalizer::IGNORED_ATTRIBUTES => ['clientName']]
             );
 
-            $this->commandBus->dispatch(new SaveOrdersPerClientToJsonFile($serializedOrders, $this->client->name));
+            $this->commandBus->dispatch(new SaveOrdersPerClientToJsonFile($serializedOrders, $this->client->getName()));
         }
     }
 

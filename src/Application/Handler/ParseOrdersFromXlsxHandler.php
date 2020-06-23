@@ -8,7 +8,6 @@ use App\Application\Command\ParseOrdersFromXlsx;
 use App\Application\Command\ParseOrdersToJson;
 use App\Model\Order;
 use Symfony\Component\Messenger\MessageBusInterface;
-use Symfony\Component\Serializer\SerializerInterface;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
 /**
@@ -17,17 +16,11 @@ use PhpOffice\PhpSpreadsheet\IOFactory;
  */
 final class ParseOrdersFromXlsxHandler
 {
-    /**
-     * @var SerializerInterface
-     */
-    private $serializer;
-
     /** @var MessageBusInterface */
     private MessageBusInterface $commandBus;
 
-    public function __construct(SerializerInterface $serializer, MessageBusInterface $commandBus)
+    public function __construct(MessageBusInterface $commandBus)
     {
-        $this->serializer = $serializer;
         $this->commandBus = $commandBus;
     }
 

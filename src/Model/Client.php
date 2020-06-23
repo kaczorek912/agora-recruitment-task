@@ -10,18 +10,20 @@ namespace App\Model;
 class Client
 {
     /** @var string */
-    public $name;
+    private $name;
 
     /** @var Order[] */
-    public $orders;
+    private $orders;
 
-    /**
-     * @param string $name
-     */
     public function __construct(string $name, array $orders)
     {
         $this->name = $name;
         $this->orders = $orders;
+    }
+
+    public function getName(): string
+    {
+        return $this->name;
     }
 
     public function getAllOrders(): array

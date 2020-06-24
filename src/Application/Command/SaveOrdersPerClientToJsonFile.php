@@ -9,11 +9,9 @@ namespace App\Application\Command;
  */
 class SaveOrdersPerClientToJsonFile
 {
-    /** @var string */
-    public $jsonData;
+    private string $jsonData;
 
-    /** @var string */
-    private $clientName;
+    private string $clientName;
 
     public function __construct(string $jsonData, string $clientName)
     {

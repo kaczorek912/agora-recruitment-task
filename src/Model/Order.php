@@ -9,20 +9,15 @@ namespace App\Model;
  */
 class Order
 {
-    /** @var string */
-    private $courier;
+    private string $courier;
 
-    /** @var string */
-    private $waybillNumber;
+    private string $waybillNumber;
 
-    /** @var float */
-    private $amount;
+    private float $amount;
 
-    /** @var string */
-    private $clientName;
+    private string $clientName;
 
-    /** @var string */
-    private $orderNumber;
+    private string $orderNumber;
 
     public function __construct(
         string $courier,

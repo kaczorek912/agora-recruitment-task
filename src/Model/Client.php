@@ -9,8 +9,7 @@ namespace App\Model;
  */
 class Client
 {
-    /** @var string */
-    private $name;
+    private string $name;
 
     /** @var Order[] */
     private $orders;

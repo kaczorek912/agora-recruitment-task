@@ -65,7 +65,7 @@
         "cs": "php -dtimecop.func_override=0 ./vendor/bin/php-cs-fixer fix --dry-run --verbose",
         "cs-fix": "php -dtimecop.func_override=0 ./vendor/bin/php-cs-fixer fix",
         "psalm": "psalm --show-info=false",
-        "phpunit": "./vendor/bin/phpunit/tests",
+        "phpunit": "./vendor/bin/phpunit tests",
         "qa": [
             "@sa",
             "@tests"

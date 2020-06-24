@@ -18,14 +18,11 @@ use Symfony\Component\Serializer\SerializerInterface;
  */
 class ParseOrdersToJsonHandler implements JsonSerializable
 {
-    /** @var SerializerInterface */
-    private $serializer;
+    private SerializerInterface $serializer;
 
-    /** @var MessageBusInterface */
     private MessageBusInterface $commandBus;
 
-    /** @var Client */
-    private $client;
+    private Client $client;
 
     public function __construct(SerializerInterface $serializer, MessageBusInterface $commandBus)
     {

@@ -9,8 +9,7 @@ namespace App\Application\Command;
  */
 final class ParseOrdersFromXlsx
 {
-    /** @var string */
-    private $fileName;
+    private string $fileName;
 
     public function __construct(string $fileName)
     {

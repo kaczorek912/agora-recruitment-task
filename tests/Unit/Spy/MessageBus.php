@@ -9,7 +9,7 @@ use Symfony\Component\Messenger\Envelope;
 use Symfony\Component\Messenger\MessageBusInterface;
 
 /**
- * @author Mateusz Kaczorowski <mateusz.kaczorowski@iiit.pl>
+ * @author Mateusz Kaczorowski <mateuszkaczorowski3@gmail.com>
  */
 class MessageBus implements MessageBusInterface
 {

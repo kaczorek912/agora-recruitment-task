@@ -15,7 +15,6 @@ use Symfony\Component\Messenger\MessageBusInterface;
  */
 final class ParseOrdersFromXlsxHandler
 {
-    /** @var MessageBusInterface */
     private MessageBusInterface $commandBus;
 
     public function __construct(MessageBusInterface $commandBus)

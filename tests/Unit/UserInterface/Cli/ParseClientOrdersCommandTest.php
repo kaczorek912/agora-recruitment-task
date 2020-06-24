@@ -1,9 +1,9 @@
 <?php
 
 declare(strict_types=1);
+use App\Tests\Unit\Spy\MessageBus;
 use App\UserInterface\Cli\ParseClientOrdersCommand;
 use PHPUnit\Framework\TestCase;
-use App\Tests\Unit\Spy\MessageBus;
 use Symfony\Component\Console\Tester\CommandTester;
 use Symfony\Component\Filesystem\Exception\FileNotFoundException;
 
@@ -46,7 +46,7 @@ class ParseClientOrdersCommandTest extends TestCase
 
     public function testExecute()
     {
-        fopen("testfile.txt", "w");
+        fopen('testfile.txt', 'w');
         $commandTester = new CommandTester($this->command);
 
         $commandTester->execute(
@@ -70,5 +70,4 @@ class ParseClientOrdersCommandTest extends TestCase
             [123],
         ];
     }
-
 }

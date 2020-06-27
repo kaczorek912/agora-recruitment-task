@@ -3,10 +3,7 @@
 
 ## Requirements
 - Docker >= 17.09 - `curl -fsSL https://get.docker.com -o get-docker.sh && sh get-docker.sh`
-- docker-compose - https://docs.docker.com/compose/install/
-
- The "https://repo.packagist.org/packages.json" file could not be downloaded: php_network_getaddresses: getaddrinfo failed: Try again  
-  failed to open stream: php_network_getaddresses: getaddrinfo failed: Try again     
+- docker-compose - https://docs.docker.com/compose/install/ 
 
 Firing up the project and installing composer packages:
 

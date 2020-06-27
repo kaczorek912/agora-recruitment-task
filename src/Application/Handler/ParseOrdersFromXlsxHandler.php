@@ -42,13 +42,13 @@ final class ParseOrdersFromXlsxHandler
             $rows[] = $cells;
         }
 
-        array_shift($rows);
+        \array_shift($rows);
 
-        $orders = array_map(
+        $orders = \array_map(
             static function ($orderData) {
                 return new Order($orderData[0], $orderData[1], $orderData[2], $orderData[3], $orderData[4]);
             },
-            array_filter($rows)
+            \array_filter($rows)
         );
 
         $this->commandBus->dispatch(new ParseOrdersToJson($orders));

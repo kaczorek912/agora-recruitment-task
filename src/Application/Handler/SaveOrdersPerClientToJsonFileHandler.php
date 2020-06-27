@@ -13,11 +13,11 @@ class SaveOrdersPerClientToJsonFileHandler
 {
     public function __invoke(SaveOrdersPerClientToJsonFile $command)
     {
-        $date = date('Y-m-d H:i:s');
+        $date = \date('Y-m-d H:i:s');
         $fileName = "({$command->getClientName()})_report_($date).json";
 
-        $fp = fopen($fileName, 'w');
-        fwrite($fp, $command->getJsonData());
-        fclose($fp);
+        $fp = \fopen($fileName, 'w');
+        \fwrite($fp, $command->getJsonData());
+        \fclose($fp);
     }
 }

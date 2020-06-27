@@ -37,7 +37,7 @@ class ParseClientOrdersCommand extends Command
             return Command::FAILURE;
         }
 
-        if (!is_string($fileName) || !file_exists($fileName)) {
+        if (!\is_string($fileName) || !\file_exists($fileName)) {
             throw new FileNotFoundException('File with the given name does not exist or has an incorrect name ');
         }
 
@@ -50,6 +50,7 @@ class ParseClientOrdersCommand extends Command
     {
         $this
             ->setDescription('Parse orders per client')
-            ->addOption('file-name', 'f', InputOption::VALUE_REQUIRED, 'input file name');
+            ->addOption('file-name', 'f', InputOption::VALUE_REQUIRED, 'input file name')
+        ;
     }
 }

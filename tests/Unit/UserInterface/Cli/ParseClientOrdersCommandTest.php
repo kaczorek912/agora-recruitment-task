@@ -46,7 +46,7 @@ class ParseClientOrdersCommandTest extends TestCase
 
     public function testExecute()
     {
-        fopen('testfile.txt', 'w');
+        \fopen('testfile.txt', 'w');
         $commandTester = new CommandTester($this->command);
 
         $commandTester->execute(
@@ -59,7 +59,7 @@ class ParseClientOrdersCommandTest extends TestCase
         $this->assertFileEquals('testfile.txt', $message[0]->getFileName());
         $this->assertCount(1, $this->messageBus->dispatchedMessages);
 
-        unlink('testfile.txt');
+        \unlink('testfile.txt');
     }
 
     public function invalidArgument(): array
